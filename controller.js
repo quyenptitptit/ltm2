@@ -1,16 +1,16 @@
 const mysql = require('mysql2')
-const {parse, stringify} = require('flatted')
+const { parse, stringify } = require('flatted')
 
 const conn = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "123",
+    password: "root",
     database: "qlnhatro"
 })
 // JSON.parse(stringify(id))
 const search = {
     searchByDay: (id, callback) => {
-        return conn.query("SELECT * FROM qlnhatro.nhatro WHERE idday = \"" + id + "\"" , callback)
+        return conn.query("SELECT * FROM qlnhatro.nhatro WHERE idday = \"" + id + "\"", callback)
     },
 
     searchByPrice: (min, max, callback) => {

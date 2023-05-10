@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyparser = require('body-parser')
 const routes = require('./route')
+const cors = require('cors')
 
 const app = express();
 
-app.use(bodyparser.urlencoded({extended: true}))
+app.use(bodyparser.urlencoded({ extended: true }))
 app.use(bodyparser.json())
+app.use(cors())
 app.use('/api', routes)
 // const mysql = require('mysql2')
 // const conn = mysql.createConnection({
@@ -23,6 +25,6 @@ app.use('/api', routes)
 //     })
 //   });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+app.listen(8080, function () {
+  console.log('Example app listening on port 8080!');
 });
